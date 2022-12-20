@@ -1,4 +1,6 @@
+import 'package:auth_santum/services/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -60,7 +62,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     'device_name': 'Flutter',
                   };
                   if (_formKey.currentState!.validate()) {
-                    print(creds);
+                    Provider.of<Auth>(context, listen: false)
+                        .login( creds: creds);
                   }
                 },
               ),
